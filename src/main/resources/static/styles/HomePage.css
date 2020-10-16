@@ -1,0 +1,8 @@
+.tableStyle{
+    display: inline-block;
+    padding: 10px;
+}
+.tableHeader{
+    padding-bottom: 5px;
+    border-bottom: 1px lightgray;
+}

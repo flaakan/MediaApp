@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/styles/HomePage.css}" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<h1> HELLO WORLD</h1>
+
+<form action="#" th:action="@{/search}" method="get">
+    <input id = "searchText" type="text" th:name="trackName"/>
+    <input id ="submitButton" type="submit" value="Submit">
+</form>
+
+
+
+<table class="tableStyle">
+    <thead class="tableHeader">
+    <tr>
+        <td>5 Random Genres</td>
+    </tr>
+    </thead>
+
+    <tr  th:each="genre :${genres}">
+        <td th:text="${genre}"></td>
+
+    </tr>
+</table>
+
+<table  class="tableStyle">
+    <thead>
+    <tr>
+        <td>5 Random Artists</td>
+    </tr>
+    </thead>
+
+    <tr th:each="artist :${artists}">
+        <td th:text="${artist}"></td>
+
+    </tr>
+</table >
+
+<table  class="tableStyle">
+    <thead>
+    <tr>
+        <td>5 Random Tracks</td>
+    </tr>
+    </thead>
+
+    <tr th:each="track :${tracks}">
+        <td th:text="${track}"></td>
+
+    </tr>
+</table>
+
+
+<script type ="text/javascript">
+    $(document).ready(function(){
+        $('#submitButton').attr('disabled',true);
+        $('#searchText').keyup(function(){
+            if($(this).val().length !=0){
+                $('#submitButton').attr('disabled', false);
+            }
+            else{
+                $('#submitButton').attr('disabled', true);
+            }
+        })
+    });
+</script>
+</body>
+</html>

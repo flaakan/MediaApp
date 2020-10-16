@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>HEllo from the other page</div>
+<table th:if="${track.getName()} != null">
+    <tr th:text="${track.getName()}"></tr>
+    <tr th:text="${track.getArtistName()}"></tr>
+    <tr th:text="${track.getAlbumName()}"></tr>
+    <tr th:text="${track.getGenre()}"></tr>
+
+
+</table>
+</body>
+</html>

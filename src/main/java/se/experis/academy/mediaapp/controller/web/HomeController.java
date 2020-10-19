@@ -1,6 +1,5 @@
 package se.experis.academy.mediaapp.controller.web;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +14,7 @@ public class HomeController {
     TrackRepository trackRepository = new TrackRepository();
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model) {
         model.addAttribute("track", new TrackDAO());
         model.addAttribute("genres", trackRepository.getFiveRandom("Genre"));
         model.addAttribute("artists", trackRepository.getFiveRandom("Artist"));
@@ -24,8 +23,8 @@ public class HomeController {
     }
 
     @GetMapping("/search")
-    public String findTrack(@RequestParam( value="trackName", required = false)String trackName, Model model){
-        if(trackName == null || trackName == ""){
+    public String findTrack(@RequestParam(value = "trackName", required = false) String trackName, Model model) {
+        if (trackName == null || trackName == "") {
             return "redirect:/";
         }
         model.addAttribute("track", trackRepository.getTrackByName(trackName));

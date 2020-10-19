@@ -10,15 +10,12 @@ public class TrackDAO {
     public TrackDAO() {
     }
 
-    public TrackDAO(String name, String albumName, String genre, String artistName ) {
-
+    public TrackDAO(String name, String albumName, String genre, String artistName) {
         this.name = name;
         this.albumName = albumName;
         this.genre = genre;
         this.artistName = artistName;
     }
-
-
 
     public String getName() {
         return name;

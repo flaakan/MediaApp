@@ -1,7 +1,6 @@
 package se.experis.academy.mediaapp.repository;
 
 import se.experis.academy.mediaapp.model.dao.TrackDAO;
-
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -12,20 +11,20 @@ public class TrackRepository {
 
     /**
      * Gets information of a Track based on String trackName.
+     *
      * @param trackName the nane of the track to search for.
      * @return TrackDAO an object with information of the Track.
      */
-
-    public TrackDAO getTrackByName(String trackName){
+    public TrackDAO getTrackByName(String trackName) {
         trackName = trackName.toLowerCase();
         TrackDAO track = new TrackDAO();
-        try{
+        try {
             conn = DriverManager.getConnection(URL);
             PreparedStatement prep = conn.prepareStatement("select Track.Name, genre.Name as genreName, Album.Title as albumTitle, Artist.Name as artistName from Track inner join Genre genre on Track.GenreId = genre.GenreId inner join Album Album on Track.AlbumId = Album.AlbumId inner join Artist Artist on  Album.ArtistId = Artist.ArtistId where lower(Track.Name) = ?;");
-            prep.setString(1,trackName);
+            prep.setString(1, trackName);
 
             ResultSet resultSet = prep.executeQuery();
-            if(resultSet.next()) {
+            if (resultSet.next()) {
                 track = new TrackDAO(
                         resultSet.getString("name"),
                         resultSet.getString("albumTitle"),
@@ -33,13 +32,12 @@ public class TrackRepository {
                         resultSet.getString("artistName")
                 );
             }
-        }
-        catch (SQLException throwables) {
+        } catch (SQLException throwables) {
             throw new RuntimeException();
-        }finally {
-            try{
+        } finally {
+            try {
                 conn.close();
-            }catch (SQLException sqlException){
+            } catch (SQLException sqlException) {
                 sqlException.printStackTrace();
             }
         }
@@ -49,27 +47,26 @@ public class TrackRepository {
 
     /**
      * Gets five random objects based on the tableName parameter.
+     *
      * @param tableName the table to get random objects from.
-     * @return  A list of 5 random names fetched from tableName.
+     * @return A list of 5 random names fetched from tableName.
      */
     public ArrayList<String> getFiveRandom(String tableName) {
         ArrayList<String> fiveRandom = new ArrayList<>();
-        try{
+        try {
             conn = DriverManager.getConnection(URL);
-            PreparedStatement prep = conn.prepareStatement("select " + tableName +".name as name from "+ tableName +" order by  random() limit 5;");
+            PreparedStatement prep = conn.prepareStatement("select " + tableName + ".name as name from " + tableName + " order by  random() limit 5;");
 
             ResultSet resultSet = prep.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 fiveRandom.add(resultSet.getString("name"));
             }
-        }
-        catch (SQLException throwables) {
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
-        finally {
-            try{
+        } finally {
+            try {
                 conn.close();
-            }catch (SQLException sqlException){
+            } catch (SQLException sqlException) {
                 sqlException.printStackTrace();
             }
         }

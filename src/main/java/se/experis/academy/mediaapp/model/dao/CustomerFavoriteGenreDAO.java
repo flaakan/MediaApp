@@ -6,12 +6,10 @@ public class CustomerFavoriteGenreDAO {
 
     private String firstName;
     private String lastName;
-    private Map<String,Integer> favoriteGenres;
-
+    private Map<String, Integer> favoriteGenres;
 
     public CustomerFavoriteGenreDAO() {
     }
-
 
     public String getFirstName() {
         return firstName;

@@ -2,21 +2,18 @@ package se.experis.academy.mediaapp.model.dao;
 
 public class CustomerSpentDAO {
 
-   private String firstName;
-   private String lastName;
-   private String totalAmount;
+    private String firstName;
+    private String lastName;
+    private String totalAmount;
 
+    public CustomerSpentDAO() {
+    }
 
-   public CustomerSpentDAO(){
-
-   }
-
-   public CustomerSpentDAO(String firstName, String lastName, String totalAmount){
-       this.firstName = firstName;
-       this.lastName = lastName;
-       this.totalAmount = totalAmount;
-   }
-
+    public CustomerSpentDAO(String firstName, String lastName, String totalAmount) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.totalAmount = totalAmount;
+    }
 
     public String getFirstName() {
         return firstName;

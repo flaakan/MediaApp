@@ -2,7 +2,7 @@ package se.experis.academy.mediaapp.model.entity;
 
 public class Customer {
 
-    private String customerId;
+    private int customerId;
     private String firstName;
     private String lastName;
     private String company;
@@ -19,11 +19,11 @@ public class Customer {
     public Customer() {
     }
 
-    public String getCustomerId() {
+    public int getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(String customerId) {
+    public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
 

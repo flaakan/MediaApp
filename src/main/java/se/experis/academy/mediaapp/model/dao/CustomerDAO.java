@@ -1,6 +1,6 @@
-package se.experis.academy.mediaapp.model.web;
+package se.experis.academy.mediaapp.model.dao;
 
-public class CustomerWeb {
+public class CustomerDAO {
 
 
     private String customerId;
@@ -10,7 +10,7 @@ public class CustomerWeb {
     private String postalCode;
     private String phone;
 
-    public CustomerWeb(String customerId, String firstName, String lastName, String country, String postalCode, String phone) {
+    public CustomerDAO(String customerId, String firstName, String lastName, String country, String postalCode, String phone) {
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;

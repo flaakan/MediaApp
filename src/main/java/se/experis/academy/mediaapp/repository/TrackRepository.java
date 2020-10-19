@@ -1,7 +1,6 @@
 package se.experis.academy.mediaapp.repository;
 
-import se.experis.academy.mediaapp.model.Track;
-import se.experis.academy.mediaapp.model.web.TrackWeb;
+import se.experis.academy.mediaapp.model.dao.TrackDAO;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,9 +10,9 @@ public class TrackRepository {
     String URL = "jdbc:sqlite::resource:Chinook_Sqlite.sqlite";
     Connection conn = null;
 
-    public TrackWeb getTrackByName(String trackName){
+    public TrackDAO getTrackByName(String trackName){
         trackName = trackName.toLowerCase();
-        TrackWeb track = new TrackWeb();
+        TrackDAO track = new TrackDAO();
         try{
             conn = DriverManager.getConnection(URL);
             System.out.println("Connection to SQLite has been established.");
@@ -22,10 +21,10 @@ public class TrackRepository {
 
             ResultSet resultSet = prep.executeQuery();
             if(resultSet.next()) {
-                track = new TrackWeb(
+                track = new TrackDAO(
                         resultSet.getString("name"),
-                        resultSet.getString("genreName"),
                         resultSet.getString("albumTitle"),
+                        resultSet.getString("genreName"),
                         resultSet.getString("artistName")
                 );
             }
@@ -48,29 +47,21 @@ public class TrackRepository {
 
 
 
-    public ArrayList<TrackWeb> getAllTracks(){
-        ArrayList<TrackWeb> tracks = new ArrayList<>();
-        System.out.println("in repo");
+    public ArrayList<TrackDAO> getAllTracks(){
+        ArrayList<TrackDAO> tracks = new ArrayList<>();
         try {
-            // Open Connection
             conn = DriverManager.getConnection(URL);
-            System.out.println("Connection to SQLite has been established.");
 
-            // Prepare Statement
-            PreparedStatement preparedStatement =
-                    conn.prepareStatement("select  track.name, Genre.name as genreName, album.Title as albumTitle, artist.name as artistName from track " +
+            PreparedStatement preparedStatement = conn.prepareStatement("select  track.name, Genre.name as genreName, album.Title as albumTitle, artist.name as artistName from track " +
                             "inner join Genre genre on genre.GenreId =Track.GenreId = genre.GenreId" +
                             " inner join Album album on Track.AlbumId = album.AlbumId" +
                             " inner join Artist artist on album.ArtistId = artist.ArtistId;");
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
-
-
-            // Process Results
             while (resultSet.next()) {
                 tracks.add(
-                        new TrackWeb(
+                        new TrackDAO(
                                 resultSet.getString("name"),
                                 resultSet.getString("albumTitle"),
                                 resultSet.getString("genreName"),
@@ -94,36 +85,8 @@ public class TrackRepository {
         }
     }
 
-
-    public ArrayList<String> getFiveRandomGenres(){
-        ArrayList<String> randomGenres = new ArrayList<>();
-        try{
-            conn = DriverManager.getConnection(URL);
-            System.out.println("Connection to SQLite has been established.");
-            PreparedStatement prep = conn.prepareStatement("select genre.Name as genreName from Genre order by  random() limit 5;");
-
-            ResultSet resultSet = prep.executeQuery();
-            while(resultSet.next()){
-                randomGenres.add(resultSet.getString("genreName"));
-            }
-
-        }
-        catch (SQLException throwables) {
-            throw new RuntimeException();
-        }finally {
-            try{
-                conn.close();
-            }catch (SQLException sqlException){
-                sqlException.printStackTrace();
-            }
-
-        }
-        return randomGenres;
-    }
-
-
     public ArrayList<String> getFiveRandom(String type) {
-        ArrayList<String> randomArtists = new ArrayList<>();
+        ArrayList<String> fiveRandom = new ArrayList<>();
         try{
             conn = DriverManager.getConnection(URL);
             System.out.println("Connection to SQLite has been established.");
@@ -131,20 +94,19 @@ public class TrackRepository {
 
             ResultSet resultSet = prep.executeQuery();
             while(resultSet.next()){
-                randomArtists.add(resultSet.getString("name"));
+                fiveRandom.add(resultSet.getString("name"));
             }
-
         }
         catch (SQLException throwables) {
-            throw new RuntimeException();
-        }finally {
+            throwables.printStackTrace();
+        }
+        finally {
             try{
                 conn.close();
             }catch (SQLException sqlException){
                 sqlException.printStackTrace();
             }
-
         }
-        return randomArtists;
+        return fiveRandom;
     }
 }

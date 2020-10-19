@@ -1,23 +1,17 @@
-package se.experis.academy.mediaapp.model;
+package se.experis.academy.mediaapp.model.dao;
 
-public class Track {
-    String trackId;
+public class TrackDAO {
     String name;
     String genre;
     String albumName;
     String artistName;
 
 
-    public Track() {
+    public TrackDAO() {
     }
 
-    public Track(String trackId, String name) {
-        this.trackId = trackId;
-        this.name = name;
+    public TrackDAO(String name, String albumName, String genre, String artistName ) {
 
-    }
-    public Track(String trackId, String name,String albumName,String genre,String artistName ) {
-        this.trackId = trackId;
         this.name = name;
         this.albumName = albumName;
         this.genre = genre;
@@ -25,13 +19,6 @@ public class Track {
     }
 
 
-    public String getTrackId() {
-        return trackId;
-    }
-
-    public void setTrackId(String trackId) {
-        this.trackId = trackId;
-    }
 
     public String getName() {
         return name;

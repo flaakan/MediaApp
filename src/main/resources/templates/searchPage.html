@@ -5,13 +5,24 @@
     <title>Title</title>
 </head>
 <body>
-<div>HEllo from the other page</div>
-<table th:if="${track.getName()} != null">
-    <tr th:text="${track.getName()}"></tr>
-    <tr th:text="${track.getArtistName()}"></tr>
-    <tr th:text="${track.getAlbumName()}"></tr>
-    <tr th:text="${track.getGenre()}"></tr>
+<div th:if="${track.getName()} == null"> No track found</div>
 
+<table th:if="${track.getName()} != null">
+
+    <thead>
+    <tr>
+        <td>Track Name</td>
+        <td>Artist</td>
+        <td>Album</td>
+        <td>Genre</td>
+    </tr>
+    </thead>
+    <tr>
+    <td th:text="${track.getName()}"></td>
+    <td th:text="${track.getArtistName()}"></td>
+    <td th:text="${track.getAlbumName()}"></td>
+    <td th:text="${track.getGenre()}"></td>
+    </tr>
 
 </table>
 </body>

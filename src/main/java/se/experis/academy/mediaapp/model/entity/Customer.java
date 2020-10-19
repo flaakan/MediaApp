@@ -1,4 +1,4 @@
-package se.experis.academy.mediaapp.model;
+package se.experis.academy.mediaapp.model.entity;
 
 public class Customer {
 

@@ -2,13 +2,15 @@ package se.experis.academy.mediaapp.model.dao;
 
 public class CustomerDAO {
 
-
     private String customerId;
     private String firstName;
     private String lastName;
     private String country;
     private String postalCode;
     private String phone;
+
+    public CustomerDAO(){
+    }
 
     public CustomerDAO(String customerId, String firstName, String lastName, String country, String postalCode, String phone) {
         this.customerId = customerId;

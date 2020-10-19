@@ -13,38 +13,10 @@ public class CustomerRepository {
     String URL = "jdbc:sqlite::resource:Chinook_Sqlite.sqlite";
     Connection conn = null;
 
-    public CustomerDAO getCustomerById(String trackId){
-        CustomerDAO customer = null;
-        try{
-            conn = DriverManager.getConnection(URL);
-            PreparedStatement prep = conn.prepareStatement("Select customerId, firstName, lastName, country, postalCode,phone from customer where customerId = ?");
-            prep.setString(1,trackId);
-            ResultSet resultSet = prep.executeQuery();
-
-            customer = new CustomerDAO(
-                    resultSet.getString("customerId"),
-                    resultSet.getString("firstName"),
-                    resultSet.getString("lastName"),
-                    resultSet.getString("country"),
-                    resultSet.getString("postalCode"),
-                    resultSet.getString("phone"));
-        }
-        catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        finally {
-            try{
-                conn.close();
-            }
-            catch (SQLException sqlException){
-                sqlException.printStackTrace();
-            }
-
-        }
-        return customer;
-    }
-
-
+    /**
+     * Gets all the customers with the total amount spent, ordered descending by the total amount.
+     * @return  A list with all customers first nam, last name and total amount spent.
+     */
     public ArrayList<CustomerSpentDAO> getAllTopSpenders(){
         ArrayList<CustomerSpentDAO> allCustomers = new ArrayList<>();
         try{
@@ -72,6 +44,14 @@ public class CustomerRepository {
         }
         return allCustomers;
     }
+
+    /**
+     * Gets the favorite genre of a customer based on the purchases the customer has made.
+     * Returns an object with customer first name, last name and the favorite genre with the amount of purchases.
+     * In the case of a tie of amount of purchases of a genre, returns both genres.
+     * @param customerId the id of the customer to check from
+     * @return  an object with the customers first name, last name and the favorite genre with the amount of purchases.
+     */
 
     public CustomerFavoriteGenreDAO getCustomerFavoriteGenres(int customerId){
         CustomerFavoriteGenreDAO customer = new CustomerFavoriteGenreDAO();

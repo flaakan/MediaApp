@@ -16,11 +16,8 @@ public class Customer {
     private String email;
     private String supportRepId;
 
-
     public Customer() {
     }
-
-
 
     public String getCustomerId() {
         return customerId;

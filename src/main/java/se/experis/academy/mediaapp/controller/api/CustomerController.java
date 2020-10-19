@@ -18,13 +18,6 @@ public class CustomerController {
 
     CustomerRepository customerRepository = new CustomerRepository();
 
-    @GetMapping("/{customerId}")
-    public ResponseEntity<CustomerDAO> getCustomerById(@PathVariable String customerId){
-        CustomerDAO customer = customerRepository.getCustomerById(customerId);
-
-        return ResponseEntity.ok(customer);
-    }
-
     @GetMapping("/top/spenders")
     public  ResponseEntity<ArrayList<CustomerSpentDAO>> getAllTopSpenders(){
         return ResponseEntity.ok(customerRepository.getAllTopSpenders());

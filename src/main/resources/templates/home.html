@@ -2,60 +2,95 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home</title>
     <link th:href="@{/styles/HomePage.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
-<body>
+<body class="bg-secondary">
+<div class="container">
+    <div class="row mb-2">
+        <div class=" col-2">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="60px" height="80px">
+                <g id="Fill_out_line" data-name="Fill out line">
+                    <path d="M392,248V472H344a55.966,55.966,0,0,1-56-56V304a55.966,55.966,0,0,1,56-56Z" style="fill:#26507a"></path>
+                    <path d="M192,296.51V416a72,72,0,0,1-72,72H96a72,72,0,0,1-72-72V296.51A71.99706,71.99706,0,0,1,64,232V128A104,104,0,0,1,168,24h88V48H212.84A60.84,60.84,0,0,0,152,108.84V232A71.99706,71.99706,0,0,1,192,296.51Z" style="fill:#d3e1e9"></path>
+                    <path d="M170.90991,245.6A71.7748,71.7748,0,0,1,192,296.51V414.77822c0,41.43864-34.40869,75.27143-75.79164,73.12362A72.0091,72.0091,0,0,1,48,416V296.51a71.99626,71.99626,0,0,1,39.86155-64.441A.24953.24953,0,0,0,88,231.84547V128.25365A80.25365,80.25365,0,0,1,168.25365,48H214a62,62,0,0,0-62,62V231.84513a.25.25,0,0,0,.13876.22394A72.09536,72.09536,0,0,1,170.90991,245.6Z" style="fill:#8acce7"></path>
+                    <path d="M488,296.51V416a72,72,0,0,1-72,72H392a72,72,0,0,1-72-72V296.51A71.99706,71.99706,0,0,1,360,232V152A103.99681,103.99681,0,0,0,256,48V24h88A104,104,0,0,1,448,128V232A71.99706,71.99706,0,0,1,488,296.51Z" style="fill:#d3e1e9"></path>
+                    <path d="M488,296.51V416a72,72,0,0,1-144,0V296.51A71.99706,71.99706,0,0,1,384,232V152A127.99924,127.99924,0,0,0,256,24h88A103.997,103.997,0,0,1,448,128V232a72.07354,72.07354,0,0,1,40,64.51Z" style="fill:#8acce7"></path>
+                    <path d="M200,248V472H136a55.9679,55.9679,0,0,1-56-56V304a55.9679,55.9679,0,0,1,56-56Z" style="fill:#26507a"></path>
+                    <rect x="144" y="248" width="112" height="224" rx="55.99994" ry="55.99994" style="fill:#396795"></rect>
+                    <path d="M200,424a24.02718,24.02718,0,0,1-24-24V320a24,24,0,0,1,48,0v80A24.02718,24.02718,0,0,1,200,424Z" style="fill:#26507a"></path>
+                    <path d="M200,432a32.03635,32.03635,0,0,0,32-32V320a32,32,0,0,0-64,0v80A32.03635,32.03635,0,0,0,200,432ZM184,320a16,16,0,0,1,32,0v80a16,16,0,0,1-32,0Z"></path>
+                    <path d="M456,227.21387V128A112.12706,112.12706,0,0,0,344,16H168A112.12706,112.12706,0,0,0,56,128v99.21387a79.52677,79.52677,0,0,0-40,69.2959V416a80.09041,80.09041,0,0,0,80,80h24a80.21955,80.21955,0,0,0,47.99023-16H200a64.07239,64.07239,0,0,0,64-64V304a64.07239,64.07239,0,0,0-64-64H176.6123A79.76483,79.76483,0,0,0,160,227.21729V108.83984A52.9,52.9,0,0,1,212.83984,56H256a95.99726,95.99726,0,0,1,96,96v75.21387a80.296,80.296,0,0,0-17.377,13.47436A64.27852,64.27852,0,0,0,280,304V416a64.07239,64.07239,0,0,0,64,64v-.04358A79.58009,79.58009,0,0,0,392,496h24a80.09041,80.09041,0,0,0,80-80V296.50977A79.52677,79.52677,0,0,0,456,227.21387ZM344,32a96.10874,96.10874,0,0,1,96,96v48H392V152a135.14821,135.14821,0,0,0-39.835-96.168A136.57266,136.57266,0,0,0,320.12793,32ZM72,192h8v35.21387a80.93384,80.93384,0,0,0-8.03613,5.29791c.011-.1709.03613-.339.03613-.51178ZM32,416V296.50977A63.60082,63.60082,0,0,1,59.82153,243.696,79.61129,79.61129,0,0,0,40,296.50977V416a79.65478,79.65478,0,0,0,20.11816,52.967A63.98279,63.98279,0,0,1,32,416Zm56-8V368h32V352H88V312h32V296H88.67944A48.0686,48.0686,0,0,1,136,256h21.7356A63.85028,63.85028,0,0,0,136,304V416a63.85028,63.85028,0,0,0,21.7356,48H136a48.0686,48.0686,0,0,1-47.32056-40H120V408ZM248,304V416a48,48,0,0,1-96,0V304a48,48,0,0,1,96,0ZM136,240a64.07239,64.07239,0,0,0-64,64V416a64.08152,64.08152,0,0,0,56.11621,63.497A65.56755,65.56755,0,0,1,120,480a64.07239,64.07239,0,0,1-64-64V296.50977a63.67012,63.67012,0,0,1,35.55957-57.34522A8.001,8.001,0,0,0,96,232V192h48v40a7.99921,7.99921,0,0,0,4.44043,7.16455c.53711.26679,1.06055.55457,1.58887.83545Zm8-131.16016V176H96V128a72.08156,72.08156,0,0,1,72-72h.77588A68.71721,68.71721,0,0,0,144,108.83984ZM335.19727,72.80322A111.2712,111.2712,0,0,0,256,40H168a88.09957,88.09957,0,0,0-88,88v48H72V128a96.10874,96.10874,0,0,1,96-96h88A120.00012,120.00012,0,0,1,376,152v24h-8V152A111.26876,111.26876,0,0,0,335.19727,72.80322ZM368,232V192h8v35.21387a80.93384,80.93384,0,0,0-8.03613,5.29791C367.9751,232.34088,368,232.17279,368,232ZM312,408H296V368h16Zm0-56H296V312h16Zm7.35449-89.15753A80.1417,80.1417,0,0,0,312.0083,296H296.68848A48.421,48.421,0,0,1,319.35449,262.84247ZM296.6792,424h15.72168a79.48681,79.48681,0,0,0,12.98926,36.24426A48.14946,48.14946,0,0,1,296.6792,424ZM328,416V296.50977A63.60043,63.60043,0,0,1,355.82178,243.696,79.61025,79.61025,0,0,0,336,296.50977V416a79.65478,79.65478,0,0,0,20.11816,52.967A63.98217,63.98217,0,0,1,328,416Zm152,0a64,64,0,0,1-128,0V296.50977a63.67012,63.67012,0,0,1,35.55957-57.34522A8.001,8.001,0,0,0,392,232V192h48v40a8.001,8.001,0,0,0,4.44043,7.16455A63.67012,63.67012,0,0,1,480,296.50977Z"></path>
+                </g>
+            </svg>
+        </div>
+        <div class="col-10 text-light p-3">
+            <h2>Welcome to media app</h2>
+        </div>
+    </div>
 
-<h1> HELLO WORLD</h1>
+    <div>
+        <form class="row ml-1" action="#" th:action="@{/search}" method="get">
+            <input class="form-control col-4 mr-2" id = "searchText" type="text" th:name="trackName"/>
+            <input class="btn btn-outline-primary col-2 ml-2" id ="submitButton" type="submit" value="Search">
+        </form>
+    </div>
 
-<form action="#" th:action="@{/search}" method="get">
-    <input id = "searchText" type="text" th:name="trackName"/>
-    <input id ="submitButton" type="submit" value="Submit">
-</form>
 
+    <div class="row mt-5" id="tables">
+        <div class="col-sm">
+            <table  class="table table-striped table-dark">
+                <thead scope="col">
+                <tr>
+                    <td class="text-secondary"> <h3>Random Artists</h3> </td>
+                </tr>
+                </thead>
 
+                <tr th:each="artist :${artists}">
+                    <td th:text="${artist}"></td>
 
-<table class="tableStyle">
-    <thead class="tableHeader">
-    <tr>
-        <td>5 Random Genres</td>
-    </tr>
-    </thead>
+                </tr>
+            </table >
+        </div>
 
-    <tr  th:each="genre :${genres}">
-        <td th:text="${genre}"></td>
+        <div class="col-sm">
+            <table  class="table table-striped table-dark">
+                <thead scope="col">
+                <tr>
 
-    </tr>
-</table>
+                    <td class="text-secondary"> <h3> Random Tracks</h3></td>
+                </tr>
+                </thead>
 
-<table  class="tableStyle">
-    <thead>
-    <tr>
-        <td>5 Random Artists</td>
-    </tr>
-    </thead>
+                <tr th:each="track :${tracks}">
+                    <td th:text="${track}"></td>
+                </tr>
+            </table>
+        </div>
 
-    <tr th:each="artist :${artists}">
-        <td th:text="${artist}"></td>
+        <div class="col-sm">
+            <table class="table table-striped table-dark">
+                <thead scope="col">
+                <tr>
+                    <td class="text-secondary"><h3>Random Genres</h3></td>
+                </tr>
+                </thead>
 
-    </tr>
-</table >
+                <tr  th:each="genre :${genres}">
+                    <td th:text="${genre}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
 
-<table  class="tableStyle">
-    <thead>
-    <tr>
-        <td>5 Random Tracks</td>
-    </tr>
-    </thead>
-
-    <tr th:each="track :${tracks}">
-        <td th:text="${track}"></td>
-
-    </tr>
-</table>
 
 
 <script type ="text/javascript">
@@ -71,5 +106,8 @@
         })
     });
 </script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
